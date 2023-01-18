@@ -1,0 +1,120 @@
+---
+title: "Ekspor Karet Remah Ke Negara Jepang Tahun 2012-2021"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Fadhil Mufid"
+date: 2023-01-13
+number-sections: true
+format: 
+  html: default
+  docx: default
+editor: visual
+---
+
+## Pendahuluan
+
+### Latar belakang
+
+Gross Domestic Product (GDP) / Produk Domestik Bruto (PDB) adalah perhitungan yang digunakan oleh suatu negara sebagai ukuran utama bagi aktivitas perekonomian nasionalnya, tetapi pada dasarnya GDP/PDB mengukur seluruh volume produksi dari suatu wilayah (negara) secara geografis.
+
+Negara Jepang merupakan negara tujuan ekspor karet remah indonesia yang terbesar ke 2 di dunia, oleh karena itu, saya memilih penelitian untuk mengetahui ekspor karet remah indonesia ke jepang menjadi negara terbesar ke 2 yang mengimpor karet remah dari indonesia karena karet remah sebagai bahan baku untuk memproduksi ban. karena di jepang sangat banyak membuat kendaraan seperti Honda yang terkenal di Indonesia.
+
+### Ruang lingkup
+
+Lingkup bahasan permasalahan ini berisi jumlah ekspor karet remah dari Indonesia ke Jepang yang mempengaruhi GDP Indonesia selama periode 2012-2021. yang dapat dilihat dari regresi ataupun variabel.
+
+### Rumusan masalah
+
+1.  Apakah ekspor karet remah ke negara Jepang berubah setiap tahunnya atau tetap?
+2.  Apakah negara Indonesia tetap mengekspor karet remah ke Jepang setiap tahunya?
+3.  Apakah ekspor karet remah ke negara Jepang mempengaruhi GDP Indonesia?
+
+### Tujuan dan manfaat penelitian
+
+Tujuan Penelitian
+
+1.  untuk mengetahui sejauh mana jepang mengimpor karet remah dari indonesia. apakah jumlah selalu sama atau berubah setiap tahunnya
+
+2.  untuk mengetahui apakah jepang akan tetap mengimpor karet remah dari indonesia untuk beberapa tahun kedepan
+
+3.  untuk menyelesaikan tugas UAS Mata Kuliah Metodologi Penelitian
+
+    Manfaat Penelitian
+
+    1.  memberikan informasi dan pengetahuan kepada pembaca tentang ekspor karet remah Indonesia ke Jepang.hasil penelitian ini diharapkan memberikan manfaat bagi peneliti tentang GDP ekspor karet remah ke Jepang.
+
+### Package
+
+Ini tidak wajib ada di packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+setwd('D:/Metopel/latihan')
+library(tidyverse)
+library(readxl)
+library(writexl)
+```
+
+## Studi pustaka
+
+pada beberapa abad yang lalu melalui spesialisasi dan perdagangan, ahli ekonomi mengemukakan kebaikan perdagangan. menurut Sukirno (2011) yaitu (1) dapat memperoleh barang yang tidak dihasilkan di luar negeri, (2) meningkatkan kesejahteraan masyarakat melalui spesialisasi, (3) memperluas pasaran barang-barang domestic, (4) memperoleh barang modal yang lebih baik, dana modal yang lebih banyak, dan tenaga kerja serta kepakaran yang lebih baik dari negara lain
+
+## Metode penelitian
+
+### Data
+
+Data GDP Indonesia
+
+| negara    | 2012     | 2013     | 2014     | 2015     | 2016     | 2017     | 2018     | 2019     | 2020     | 2021     |
+|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+| indonesia | 9,18E+11 | 9,13E+11 | 8,91E+11 | 8,61E+11 | 9,32E+11 | 1,02E+12 | 1,04E+12 | 1,12E+12 | 1,06E+12 | 1,19E+12 |
+
+: Data Ekspor Indonesia ke Jepang
+
+| negara | 2012  | 2013  | 2014  | 2015  | 2016 | 2017  | 2018  | 2019  | 2020  | 2021  |
+|--------|-------|-------|-------|-------|------|-------|-------|-------|-------|-------|
+| jepang | 384,5 | 419,3 | 401,9 | 420,6 | 413  | 453,1 | 472,8 | 493,7 | 380,8 | 479,4 |
+
+![](poltekapp.jpg)
+
+```{r}
+#| label: fig-mpg
+#| fig-cap: "City and highway mileage for 38 popular models of cars.Color by number of cylinders"
+dat<-read_excel('dataregresi.xlsx')
+ggplot(data=dat,aes(x=gdpindo,y=eksporjepang)) +
+  geom_point()
+```
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini bermaksud mencari hubungan antara gdpindonesia dan eksporjepang. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah gdpindonesia dan $x_t$ adalah eksporjepang.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Pada bagian ini dapat ditampilkan data dan visualisasi data yang telah dikumpulkan.
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg1<-lm(gdpindo~eksporjepang,data=dat)
+summary(reg1)
+
+```
+
+## Kesimpulan
+
+Dari hasil regresi tersebut dapat diketahui bahwa GDP Indonesia dipengaruhi sangat besar oleh ekspor karet remah ke Jepang selama periode 2012-2021. didapatkan hasil regresi adalah 1.808e+09/(Rp. 1.808.000.000.000) dengan rata rata jumlah GDP Indonesia selama periode 2012-2021 adalah sebesar Rp9.935.712.469.618, yang berarti ekspor karet remah Indonesia ke Jepang berpengaruh sebesar 18% terhadap GDP Indonesia.
+
+**Saran**
+
+sebaiknya angka GDP Indonesia tetap dipertahankan hingga tahun tahun selanjutnya karena ekspor karet remah ke Jepang sangat berpengaruh ke GDP Indonesia sebanyak 18%.
+
+## Referensi
+
+Siburian, Onike. (2012). Analisis faktor-faktor yang mempengaruhi Ekspor Karet Alam Indonesia ke Singapura tahun 1980-2010.
